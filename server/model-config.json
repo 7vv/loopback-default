@@ -38,5 +38,9 @@
   "product": {
     "dataSource": null,
     "public": true
+  },
+  "product_api": {
+    "dataSource": null,
+    "public": true
   }
 }

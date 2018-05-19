@@ -1,0 +1,20 @@
+{
+  "name": "product_api",
+  "plural": "test2",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "xu_none": {
+      "type": "string",
+      "required": true,
+      "default": "default-value"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
