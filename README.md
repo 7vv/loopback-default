@@ -23,6 +23,12 @@ create LoopBack server
 create LoopBack model
 - `lb model`
 
+## step4
+서버 실행하기
+- `node .`
+
+
+
 
 
 

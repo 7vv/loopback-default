@@ -42,5 +42,9 @@
   "product_api": {
     "dataSource": null,
     "public": true
+  },
+  "order": {
+    "dataSource": null,
+    "public": true
   }
 }
