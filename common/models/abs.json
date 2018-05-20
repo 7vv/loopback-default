@@ -9,10 +9,6 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "city": {
-      "type": "date",
-      "required": true
     }
   },
   "validations": [],
