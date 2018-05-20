@@ -25,7 +25,7 @@ create LoopBack model
 
 ## step4
 서버 실행하기
-- `node .`
+- `node .` or `nodemon .`   <- 사용가능
 
 ## Model connect DataSource
 모델을 DataSource에 연결하기.
