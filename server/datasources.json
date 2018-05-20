@@ -12,5 +12,15 @@
     "name": "mongodb",
     "user": "",
     "connector": "mongodb"
+  },
+  "mysql": {
+    "host": "localhost",
+    "port": 5005,
+    "url": "",
+    "database": "abs",
+    "password": "1270",
+    "name": "mysql",
+    "user": "user",
+    "connector": "mysql"
   }
 }
