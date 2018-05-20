@@ -27,6 +27,30 @@ create LoopBack model
 서버 실행하기
 - `node .`
 
+## Model connect DataSource
+모델을 DataSource에 연결하기.
+
+- lb datasource `데이터 소스 설정`
+- /server/model-config.json 에서 원하는 db key값에 datasource 연결
+- datasource에 사용할 수 있는 함수 사용해보기 `ex) app.models.CoffeeShop.create, update 등등..`
+- 예제 API
+```
+ app.models.abs.create([{
+      name: 'Bel Cafe',
+      city: 'Vancouver'
+    }, {
+      name: 'Three Bees Coffee House',
+      city: 'San Mateo'
+    }, {
+      name: 'Caffe Artigiano',
+      city: 'Vancouver'
+    }], function(err, abss) {
+      if (err) throw err;
+
+      console.log('Models created: \n', abss);
+    });
+```
+
 
 
 

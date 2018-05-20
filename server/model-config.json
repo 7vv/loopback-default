@@ -48,7 +48,7 @@
     "public": true
   },
   "abs": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": false
   },
   "babs": {

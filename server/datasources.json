@@ -15,12 +15,12 @@
   },
   "mysql": {
     "host": "localhost",
-    "port": 5005,
+    "port": 3306,
     "url": "",
     "database": "abs",
-    "password": "1270",
+    "password": "abs",
     "name": "mysql",
-    "user": "user",
+    "user": "abs",
     "connector": "mysql"
   }
 }
