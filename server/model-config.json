@@ -54,5 +54,13 @@
   "babs": {
     "dataSource": "db",
     "public": true
+  },
+  "Review": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Reviewer": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
