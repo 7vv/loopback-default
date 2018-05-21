@@ -1,6 +1,5 @@
 module.exports = function(app) {
   //Express 기반이라서 Express 형태로 사용하면 된다.
-  // Install a "/ping" route that returns "pong"
   app.get('/ping', function(req, res) {
     res.send('pong');
   });

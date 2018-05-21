@@ -67,6 +67,38 @@ API 서버로만 사용할거라서 정적 웹 페이지가 필요없지만 언�
 
 추가로 부팅 스크립트를 이용해 사용자 정의 라우터를 만들 수 있다.
 - /server/boot/routes.js 생성 routes.js는 임의로 정할 수 있다.
+- 아래 코드 작성 Express 라우터랑 같아서 설명 생략
+
+```
+module.exports = function(app) {
+  //Express 기반이라서 Express 형태로 사용하면 된다.
+  app.get('/ping', function(req, res) {
+    res.send('pong');
+  });
+
+  const api = app.loopback.Router();
+  const user = app.loopback.Router();
+  api.get('/', (req, res, next) => {
+    res.send('this api')
+  })
+
+  api.get('/get', (req, res, next) => {
+    res.send('this get api')
+  })
+
+  user.get('/', (req, res, next) => {
+    res.send('this user')
+  })
+
+  user.get('/get', (req, res, next) => {
+    res.send('this get user')
+  })
+
+
+  app.use('/user', user)
+  app.use('/api', api);
+}
+```
 
 
 
