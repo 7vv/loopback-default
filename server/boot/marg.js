@@ -3,11 +3,33 @@ module.exports = async function (app) {
   const mongodb = app.dataSources.mongodb;
   const mysql = app.dataSources.mysql;
 
+  //create reviews
+  createReviews = async (reviewers, coffeeShops) => {
+    return new Promise((resolve, reject) => {
+      mongodb.automigrate('Review', (err) => {
+        if (err) reject(err)
+        const Review = app.models.Review;
+        const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
+        Review.create([
+          {
+            date: Date.now() - (DAY_IN_MILLISECONDS * 4),
+            rating: 5,
+            comments: 'A very good coffee shop.',
+            publisherId: reviewers[0].id,
+            coffeeShopId: coffeeShops[0].id,
+          }
+        ], (err, doc) => {
+          if (err) console.log('Create Review Error', err);
+          resolve(doc);
+        });
+      });
+    })
+  }
 
   createCoffeShop = async () => {
     return new Promise((resolve, reject) => {
       mysql.automigrate('abs', err => {
-        if (err) throw err;
+        if (err) reject(err)
 
         const Abs = app.models.Abs;
         Abs.create([
@@ -31,7 +53,7 @@ module.exports = async function (app) {
   createReviewer = async () => {
     return new Promise((resolve, reject) => {
       mongodb.automigrate('Reviewer', err => {
-        if (err) return callback(err);
+        if (err) reject(err)
 
         const Reviewer = app.models.Reviewer;
 
@@ -48,28 +70,7 @@ module.exports = async function (app) {
     })
   }
 
-  //create reviews
-  createReviews = async (reviewers, coffeeShops) => {
-    return new Promise((resolve, reject) => {
-      mongodb.automigrate('Review', (err) => {
-        if (err) console.log('error',err)
-        const Review = app.models.Review;
-        const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
-        Review.create([
-          {
-            date: Date.now() - (DAY_IN_MILLISECONDS * 4),
-            rating: 5,
-            comments: 'A very good coffee shop.',
-            publisherId: reviewers[0].id,
-            coffeeShopId: coffeeShops[0].id,
-          }
-        ], (err, doc) => {
-          if (err) console.log('Create Review Error', err);
-          resolve(doc);
-        });
-      });
-    })
-  }
+
 
 
   const coffeDoc = await createCoffeShop();
