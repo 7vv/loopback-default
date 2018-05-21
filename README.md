@@ -51,7 +51,22 @@ create LoopBack model
     });
 ```
 
+## Static 웹 페이지 추가하기
+API 서버로만 사용할거라서 정적 웹 페이지가 필요없지만 언젠간 사용할거 같아서 작성
 
+- /server/middleware.json 에다가 정의한다.
+```
+  "files": {
+    "loopback#static": {
+      "params": "$!../client"
+    }
+  },
+```
+- $! 문자는 해당 파일 경로 위치를 반환함
+- /client/index.html 위치에 웹 페이지 파일 작성
+
+추가로 부팅 스크립트를 이용해 사용자 정의 라우터를 만들 수 있다.
+- /server/boot/routes.js 생성 routes.js는 임의로 정할 수 있다.
 
 
 
