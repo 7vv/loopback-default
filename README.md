@@ -197,6 +197,64 @@ module.exports = async function (app) {
 
 ```
 
+## 모델 간 관계 정의하기
+모델 간 관계를 정의할 수 있다. 여러가지 관계 설정도 가능하다.
+
+신기하게 한국어로 나온다.
+
+`모델 abs에는 많은 Review 모델이 있다`
+- lb relation
+- ? 관계(from)를 작성할 모델 선택: abs
+- ? 관계 유형: has many
+- ? 관계(to)를 작성할 모델 선택: Review
+- ? 관계의 특성 이름 입력: reviews
+- ? 사용자 외부 키 입력(선택적):
+- ? through 모델이 필수입니까? No
+- ? REST API에서 관계가 중첩되도록 허용: No
+- ? 관계가 포함되지 않도록 설정: No
+
+`모델 abs에는 많은 Reviwer모델이 있다.`
+- lb relation
+- ? 관계(from)를 작성할 모델 선택: abs
+- ? 관계 유형: has many
+- ? 관계(to)를 작성할 모델 선택: Reviewer
+- ? 관계의 특성 이름 입력: reviewers              `공백으로 입력하면 자동으로 작성된다.`
+- ? 사용자 외부 키 입력(선택적):
+- ? through 모델이 필수입니까? No
+- ? REST API에서 관계가 중첩되도록 허용: No
+- ? 관계가 포함되지 않도록 설정: No
+
+`Review는 abs에 속한 모델이다. `
+- lb relation
+- ? 관계(from)를 작성할 모델 선택: Review
+- ? 관계 유형: belongs to                  `어딘가에 속할 모델이다.`
+- ? 관계(to)를 작성할 모델 선택: abs           `Review모델은 abs모델에 속한다`
+- ? 관계의 특성 이름 입력: abs
+- ? 사용자 외부 키 입력(선택적):
+- ? REST API에서 관계가 중첩되도록 허용: No
+- ? 관계가 포함되지 않도록 설정: No
+
+`Review는 Reivwer에 속하고 외래 키 이다. publisherId`
+- lb relation
+- ? 관계(from)를 작성할 모델 선택: Review
+- ? 관계 유형: belongs to
+- ? 관계(to)를 작성할 모델 선택: Reviewer
+- ? 관계의 특성 이름 입력: reviewer
+- ? 사용자 외부 키 입력(선택적): publisherId
+- ? REST API에서 관계가 중첩되도록 허용: No
+- ? 관계가 포함되지 않도록 설정: No
+
+`Reivwer에는 많은 Review가 있다. 외래 키 이다. publisherId`
+
+- lb relation
+- ? 관계(from)를 작성할 모델 선택: Reviewer
+- ? 관계 유형: has many
+- ? 관계(to)를 작성할 모델 선택: Review
+- ? 관계의 특성 이름 입력: reviews
+- ? 사용자 외부 키 입력(선택적): publisherId
+- ? through 모델이 필수입니까? No
+- ? REST API에서 관계가 중첩되도록 허용: No
+- ? 관계가 포함되지 않도록 설정: No
 
 
 
