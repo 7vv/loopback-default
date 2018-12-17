@@ -12,9 +12,9 @@
   },
   "scripts": {
     "build:apidocs": "lb-apidocs",
-    "build": "lb-tsc es2017 --outDir dist",
+    "build": "npm run clean && lb-tsc es2017 --outDir build",
     "build:watch": "lb-tsc --watch",
-    "clean": "lb-clean dist",
+    "clean": "lb-clean build",
     "lint": "npm run prettier:check && npm run tslint",
     "lint:fix": "npm run tslint:fix && npm run prettier:fix",
     "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
@@ -24,7 +24,7 @@
     "tslint:fix": "npm run tslint -- --fix",
     "pretest": "npm run clean && npm run build",
     "posttest": "npm run lint",
-    "migrate": "node ./dist/src/migrate",
+    "migrate": "node ./build/src/migrate",
     "prestart": "npm run build",
     "start": "node .",
     "prepublishOnly": "npm run test"
@@ -38,8 +38,8 @@
     "README.md",
     "index.js",
     "index.d.ts",
-    "dist/src",
-    "dist/index*",
+    "build/src",
+    "build/index*",
     "src"
   ],
   "dependencies": {

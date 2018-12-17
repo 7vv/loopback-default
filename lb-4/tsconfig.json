@@ -1,14 +1,35 @@
 {
-  "$schema": "http://json.schemastore.org/tsconfig",
-  "extends": "@loopback/build/config/tsconfig.common.json",
-  "include": [
-    "src",
-    "test",
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules/**",
-    "packages/*/node_modules/**",
-    "**/*.d.ts"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "target": "es6",
+        "removeComments": true,
+        "noImplicitAny": false,
+        "inlineSourceMap": true,
+        "noEmitOnError": false,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "declaration": true,
+        "outDir": "./build",
+        "baseUrl": ".",
+        "lib": [
+            "es2016.array.include",
+            "esnext.asynciterable",
+            "es6",
+            "dom"
+        ]
+    },
+    "include": [
+        "src",
+        "test",
+        "index.ts"
+    ],
+    "exclude": [
+        "node_modules/**",
+        "packages/*/node_modules/**",
+        "**/*.d.ts"
+    ]
 }
